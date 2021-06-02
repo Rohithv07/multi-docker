@@ -1,4 +1,4 @@
-FROM node:14.14.0-alpine as builder
+FROM node:14.14.0-alpine
 WORKDIR '/app'
 COPY ./packge.json ./
 RUN yarn install
@@ -8,7 +8,7 @@ RUN yarn build
 FROM nginx
 EXPOSE 3000
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
 
 
 
