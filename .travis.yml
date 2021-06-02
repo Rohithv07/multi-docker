@@ -1,7 +1,6 @@
-language: generic
-
 # required super user access
 sudo: required
+language: generic
 
 # services thhat are required
 services: 
